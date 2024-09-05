@@ -1,0 +1,120 @@
+{
+  "countries": [
+    {
+      "strArea": "American",
+      "strCategoryThumb": "https://www.countryflags.io/us/flat/64.png"
+    },
+    {
+      "strArea": "British",
+      "strCategoryThumb": "https://www.countryflags.io/gb/flat/64.png"
+    },
+    {
+      "strArea": "Canadian",
+      "strCategoryThumb": "https://www.countryflags.io/ca/flat/64.png"
+    },
+    {
+      "strArea": "Chinese",
+      "strCategoryThumb": "https://www.countryflags.io/cn/flat/64.png"
+    },
+    {
+      "strArea": "Croatian",
+      "strCategoryThumb": "https://www.countryflags.io/hr/flat/64.png"
+    },
+    {
+      "strArea": "Dutch",
+      "strCategoryThumb": "https://www.countryflags.io/nl/flat/64.png"
+    },
+    {
+      "strArea": "Egyptian",
+      "strCategoryThumb": "https://www.countryflags.io/eg/flat/64.png"
+    },
+    {
+      "strArea": "Filipino",
+      "strCategoryThumb": "https://www.countryflags.io/ph/flat/64.png"
+    },
+    {
+      "strArea": "French",
+      "strCategoryThumb": "https://www.countryflags.io/fr/flat/64.png"
+    },
+    {
+      "strArea": "Greek",
+      "strCategoryThumb": "https://www.countryflags.io/gr/flat/64.png"
+    },
+    {
+      "strArea": "Indian",
+      "strCategoryThumb": "https://www.countryflags.io/in/flat/64.png"
+    },
+    {
+      "strArea": "Irish",
+      "strCategoryThumb": "https://www.countryflags.io/ie/flat/64.png"
+    },
+    {
+      "strArea": "Italian",
+      "strCategoryThumb": "https://www.countryflags.io/it/flat/64.png"
+    },
+    {
+      "strArea": "Jamaican",
+      "strCategoryThumb": "https://www.countryflags.io/jm/flat/64.png"
+    },
+    {
+      "strArea": "Japanese",
+      "strCategoryThumb": "https://www.countryflags.io/jp/flat/64.png"
+    },
+    {
+      "strArea": "Kenyan",
+      "strCategoryThumb": "https://www.countryflags.io/ke/flat/64.png"
+    },
+    {
+      "strArea": "Malaysian",
+      "strCategoryThumb": "https://www.countryflags.io/my/flat/64.png"
+    },
+    {
+      "strArea": "Mexican",
+      "strCategoryThumb": "https://www.countryflags.io/mx/flat/64.png"
+    },
+    {
+      "strArea": "Moroccan",
+      "strCategoryThumb": "https://www.countryflags.io/ma/flat/64.png"
+    },
+    {
+      "strArea": "Polish",
+      "strCategoryThumb": "https://www.countryflags.io/pl/flat/64.png"
+    },
+    {
+      "strArea": "Portuguese",
+      "strCategoryThumb": "https://www.countryflags.io/pt/flat/64.png"
+    },
+    {
+      "strArea": "Russian",
+      "strCategoryThumb": "https://www.countryflags.io/ru/flat/64.png"
+    },
+    {
+      "strArea": "Spanish",
+      "strCategoryThumb": "https://www.countryflags.io/es/flat/64.png"
+    },
+    {
+      "strArea": "Thai",
+      "strCategoryThumb": "https://www.countryflags.io/th/flat/64.png"
+    },
+    {
+      "strArea": "Tunisian",
+      "strCategoryThumb": "https://www.countryflags.io/tn/flat/64.png"
+    },
+    {
+      "strArea": "Turkish",
+      "strCategoryThumb": "https://www.countryflags.io/tr/flat/64.png"
+    },
+    {
+      "strArea": "Ukrainian",
+      "strCategoryThumb": "https://www.countryflags.io/ua/flat/64.png"
+    },
+    {
+      "strArea": "Unknown",
+      "strCategoryThumb": "https://www.countryflags.io/xx/flat/64.png"
+    },
+    {
+      "strArea": "Vietnamese",
+      "strCategoryThumb": "https://www.countryflags.io/vn/flat/64.png"
+    }
+  ]
+}

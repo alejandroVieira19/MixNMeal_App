@@ -1,12 +1,14 @@
-package com.example.recipe_app
+package com.example.recipe_app.app_ui.ViewModel
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.recipe_app.models.Category
+import com.example.recipe_app.data.recipeService
 import kotlinx.coroutines.launch
 
-class MainViewModel: ViewModel() {
+class CategoryViewModel: ViewModel() {
 
     // Private mutable state that holds the current RecipeState.
     // This is used internally to update the state.

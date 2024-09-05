@@ -1,5 +1,7 @@
-package com.example.recipe_app
+package com.example.recipe_app.data
 
+import com.example.recipe_app.models.CategoriesResponse
+import com.example.recipe_app.models.CountryResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -12,6 +14,9 @@ private val _retrofit = Retrofit.Builder().baseUrl("https://www.themealdb.com/ap
 // This service will use the ApiService interface to make requests to the defined base URL
 val recipeService = _retrofit.create(ApiService::class.java)
 
+private val _restCountriesRetrofit = Retrofit.Builder().baseUrl("https://restcountries.com/v3.1/").addConverterFactory(GsonConverterFactory.create()).build()
+
+val restCountryRecipeService = _restCountriesRetrofit.create(ApiService::class.java)
 
 
 interface ApiService {
@@ -22,5 +27,12 @@ interface ApiService {
     // The 'suspend' keyword is used to indicate that this function can be called asynchronously.
     // This means that it can pause its execution until the data is received, without blocking the user interface.
     suspend fun getCategories(): CategoriesResponse
+
+    @GET("list.php?a=list")
+    suspend fun getCountries(): CountryResponse
+
+    @GET("all")
+    suspend fun getRestCountries(): List<RestCountry>
+
 }
 
