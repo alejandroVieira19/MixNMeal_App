@@ -28,8 +28,8 @@ import androidx.navigation.NavController
 import com.example.recipe_app.models.Category
 import com.example.recipe_app.models.Country
 
-import com.example.recipe_app.app_ui.ViewModel.AlcoholicDrinksViewModel
-import com.example.recipe_app.app_ui.ViewModel.CategoryViewModel
+import com.example.recipe_app.app_ui.ViewModel.drinks.AlcoholicDrinksViewModel
+import com.example.recipe_app.app_ui.ViewModel.meals.CategoryViewModel
 import com.example.recipe_app.app_ui.ViewModel.CountryViewModel
 import com.example.recipe_app.app_ui.components.AlcoholicDrinksRow
 import com.example.recipe_app.app_ui.components.FilterSection

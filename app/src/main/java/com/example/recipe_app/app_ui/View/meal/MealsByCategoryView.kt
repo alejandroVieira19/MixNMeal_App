@@ -1,7 +1,8 @@
-package com.example.recipe_app.app_ui.View
+package com.example.recipe_app.app_ui.View.meal
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -40,7 +41,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.recipe_app.app_ui.ViewModel.CategoryViewModel
+import com.example.recipe_app.app_ui.ViewModel.meals.CategoryViewModel
 import com.example.recipe_app.app_ui.components.DividerComposable
 import com.example.recipe_app.models.Category
 
@@ -60,14 +61,12 @@ fun MealsByCategoryView(navController: NavController,modifier: Modifier = Modifi
             viewState.loading -> {
                 CircularProgressIndicator(modifier.align(Alignment.Center))
             }
-
             viewState.error != null -> {
                 Text("ERROR OCCURRED")
             }
-
             // If loading is complete and there is no error, display the categories
             else -> {
-                CategoryScreen(categories = viewState.list, navController)
+                MealCategoryScreen(categories = viewState.list, navController)
             }
         }
     }
@@ -75,7 +74,7 @@ fun MealsByCategoryView(navController: NavController,modifier: Modifier = Modifi
 
 @Composable
 
-fun CategoryScreen(categories: List<Category>, navController: NavController) {
+fun MealCategoryScreen(categories: List<Category>, navController: NavController) {
     val darkTheme = isSystemInDarkTheme()
 
     Column(
@@ -115,7 +114,8 @@ fun CategoryScreen(categories: List<Category>, navController: NavController) {
             DividerComposable(darkTheme)
             LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
             items(categories) { category ->
-                CategoryItem(category = category)}
+                MealyByCategoryItem(category = category, darkTheme)
+            }
             }
     }
 }
@@ -124,18 +124,19 @@ fun CategoryScreen(categories: List<Category>, navController: NavController) {
 
 
     @Composable
-    fun CategoryItem(category: Category) {
+    fun MealyByCategoryItem(category: Category, darkTheme: Boolean) {
         Card(
             modifier = Modifier
                 .padding(8.dp)
                 .fillMaxWidth()
-                .wrapContentHeight(),
+                .wrapContentHeight()
+                .clickable(onClick = {}),
             shape = RoundedCornerShape(16.dp)
         ) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color.LightGray) // Cor de fundo do cartão
+                    .background(color = if(darkTheme) Color.DarkGray else Color.LightGray) // Cor de fundo do cartão
             ) {
                 Column(
                     modifier = Modifier
@@ -164,7 +165,7 @@ fun CategoryScreen(categories: List<Category>, navController: NavController) {
 
                     Text(
                         text = category.strCategory,
-                        color = Color.Black,
+                        color = if(darkTheme) Color.White else Color.LightGray,
                         style = TextStyle(
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp

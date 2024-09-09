@@ -9,11 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.example.recipe_app.app_ui.View.MealsByCategoryView
-import com.example.recipe_app.app_ui.View.MixNMealView
 
 @Composable
 fun FilterSection(isDarkTheme: Boolean, navController: NavController) {
@@ -26,11 +21,11 @@ fun FilterSection(isDarkTheme: Boolean, navController: NavController) {
             .padding(1.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp) // Espaçamento entre os itens
     ) {
-        items(listOf("Food Categories", "Drink Categories", "Area", "Non Alcoholic")) { filter ->
+        items(listOf("Food Categories", "Random Drink", "Area", "Non Alcoholic")) { filter ->
             FilterButton(filter, isDarkTheme) {
                 when (filter) {
                     "Food Categories" -> navController.navigate("food_categories")
-                    "Drink Categories" -> navController.navigate("drink_categories")
+                    "Random Drink" -> navController.navigate("random_drink")
                     "Area" -> navController.navigate("area")
                     "Non Alcoholic" -> navController.navigate("non_alcoholic")
                 }

@@ -1,6 +1,7 @@
 package com.example.recipe_app.data
 
 import com.example.recipe_app.models.AlcoholicDrinksResponse
+import com.example.recipe_app.models.RandomDrinkResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -14,4 +15,7 @@ interface CocktailDBApiServiceInterface {
     @GET("filter.php?a=Alcoholic")
 
     suspend fun getAlcoholicDrinks(): AlcoholicDrinksResponse
+
+    @GET("random.php")
+    suspend fun getRandomDrink(): RandomDrinkResponse
 }
