@@ -20,14 +20,18 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun FilterButton(text: String, isDarkTheme: Boolean) {
-
-    Button(onClick = { },
+fun FilterButton(text: String, isDarkTheme: Boolean, onClick: () -> Unit) {
+    Button(
+        onClick = onClick,
         shape = CircleShape,
         colors = ButtonDefaults.buttonColors(
-            containerColor =  if(isDarkTheme) Color.DarkGray else Color.LightGray)) {
-        Text(text = text,
-            color = if(isDarkTheme) Color.White else Color.DarkGray,
-            style = TextStyle(fontWeight = FontWeight.Bold), fontStyle = FontStyle.Italic)
+            containerColor = if (isDarkTheme) Color.DarkGray else Color.LightGray
+        )
+    ) {
+        Text(
+            text = text,
+            color = if (isDarkTheme) Color.White else Color.DarkGray,
+            style = TextStyle(fontWeight = FontWeight.Bold), fontStyle = FontStyle.Italic
+        )
     }
 }

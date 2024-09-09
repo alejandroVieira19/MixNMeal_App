@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.navigation.NavController
 import com.example.recipe_app.models.Category
 import com.example.recipe_app.models.Country
 
@@ -38,7 +39,7 @@ import com.example.recipe_app.models.AlcoholicDrinks
 
 
 @Composable
-fun MixNMealView(modifier: Modifier = Modifier) {
+fun MixNMealView(navController: NavController, modifier: Modifier = Modifier) {
 
     //TODO: ALGUMAS FUNCÕES SAO DUPLICACAO DE CODIGO, PARA EVITAR
     //TODO: APRIMAR OS BOTOES PARA USAR O NAVIGATE
@@ -75,7 +76,7 @@ fun MixNMealView(modifier: Modifier = Modifier) {
 
             // If loading is complete and there is no error, display the categories
             else -> {
-                MixNMealComposable(viewState.list, viewCategoryState.list, viewAlcoholicDrinksState.list)
+                MixNMealComposable(viewState.list, viewCategoryState.list, viewAlcoholicDrinksState.list, navController)
             }
         }
     }
@@ -85,15 +86,17 @@ fun MixNMealView(modifier: Modifier = Modifier) {
 fun MixNMealComposable(
     countries: List<Country>,
     viewCategoryState: List<Category>,
-    viewAlcoholicDrinksState: List<AlcoholicDrinks>
-) {
+    viewAlcoholicDrinksState: List<AlcoholicDrinks>,
+    navController: NavController,
+
+    ) {
     val isDarkTheme = isSystemInDarkTheme()
 
     // Wrapping the content in a LazyColumn to make it scrollable
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            //.padding(8.dp)
 
     ) {
         item {
@@ -109,7 +112,7 @@ fun MixNMealComposable(
             )
         }
         item {
-            FilterSection(isDarkTheme)
+            FilterSection(isDarkTheme, navController)
         }
 
         item {
