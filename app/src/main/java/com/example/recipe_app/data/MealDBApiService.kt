@@ -15,6 +15,10 @@ private val _retrofit = Retrofit.Builder().baseUrl("https://www.themealdb.com/ap
 // This service will use the ApiService interface to make requests to the defined base URL
 val recipeService = _retrofit.create(ApiService::class.java)
 
+private val _restCountriesRetrofit = Retrofit.Builder().baseUrl("https://restcountries.com/v3.1/").addConverterFactory(GsonConverterFactory.create()).build()
+
+val restCountryRecipeService = _restCountriesRetrofit.create(ApiService::class.java)
+
 
 interface ApiService {
     // The @GET annotation indicates that this function will perform an HTTP GET request.
@@ -28,9 +32,10 @@ interface ApiService {
     @GET("list.php?a=list")
     suspend fun getCountries(): CountryResponse
 
-    @GET()
+    @GET("all")
+    suspend fun getRestCountries(): List<RestCountry>
+
+    @GET("random.php")
     suspend fun getRandomMeal(): RandomMealResponse
-
-
 }
 

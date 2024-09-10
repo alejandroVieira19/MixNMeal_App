@@ -15,6 +15,7 @@ import com.example.recipe_app.app_ui.view.MixNMealView
 import com.example.recipe_app.app_ui.view.drinks.NonAlcoholicDrinksView
 import com.example.recipe_app.app_ui.view.drinks.RandomDrinkView
 import com.example.recipe_app.app_ui.view.meal.MealsByCategoryView
+import com.example.recipe_app.app_ui.view.meal.RandomMealView
 import com.example.recipe_app.ui.theme.Recipe_AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -40,7 +41,7 @@ fun MixNMealApp() {
         composable("mix_n_meal") { MixNMealView(navController)  }
         composable("food_categories") { MealsByCategoryView(navController) }
         composable("random_drink") { RandomDrinkView(navController) }
-        composable("random_meal") { /* Composable para Area */ }
+        composable("random_meal") { RandomMealView(navController) }
         composable("non_alcoholic") { NonAlcoholicDrinksView(navController) }
     }
 }

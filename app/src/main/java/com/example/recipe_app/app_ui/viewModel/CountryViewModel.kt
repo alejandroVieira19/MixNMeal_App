@@ -4,8 +4,8 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.recipe_app.models.Country
 import com.example.recipe_app.data.RestCountry
+import com.example.recipe_app.models.Country
 import com.example.recipe_app.data.recipeService
 import kotlinx.coroutines.launch
 
