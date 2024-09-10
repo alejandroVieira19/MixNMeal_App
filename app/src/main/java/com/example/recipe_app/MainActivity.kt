@@ -40,7 +40,7 @@ fun MixNMealApp() {
         composable("mix_n_meal") { MixNMealView(navController)  }
         composable("food_categories") { MealsByCategoryView(navController) }
         composable("random_drink") { RandomDrinkView(navController) }
-        composable("area") { /* Composable para Area */ }
+        composable("random_meal") { /* Composable para Area */ }
         composable("non_alcoholic") { NonAlcoholicDrinksView(navController) }
     }
 }

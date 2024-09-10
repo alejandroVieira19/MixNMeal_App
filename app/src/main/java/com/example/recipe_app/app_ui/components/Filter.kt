@@ -21,12 +21,12 @@ fun FilterSection(isDarkTheme: Boolean, navController: NavController) {
             .padding(1.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp) // Espaçamento entre os itens
     ) {
-        items(listOf("Food Categories", "Random Drink", "Area", "Non Alcoholic")) { filter ->
+        items(listOf("Food Categories", "Random Drink", "Random Meal", "Non Alcoholic")) { filter ->
             FilterButton(filter, isDarkTheme) {
                 when (filter) {
                     "Food Categories" -> navController.navigate("food_categories")
                     "Random Drink" -> navController.navigate("random_drink")
-                    "Area" -> navController.navigate("area")
+                    "Random Meal" -> navController.navigate("random_meal")
                     "Non Alcoholic" -> navController.navigate("non_alcoholic")
                 }
             }
