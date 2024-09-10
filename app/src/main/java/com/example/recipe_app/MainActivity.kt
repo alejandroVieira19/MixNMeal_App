@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.recipe_app.app_ui.view.MixNMealView
+import com.example.recipe_app.app_ui.view.drinks.AlcoholicDrinksView
 import com.example.recipe_app.app_ui.view.drinks.NonAlcoholicDrinksView
 import com.example.recipe_app.app_ui.view.drinks.RandomDrinkView
 import com.example.recipe_app.app_ui.view.meal.MealsByCategoryView
@@ -43,5 +44,6 @@ fun MixNMealApp() {
         composable("random_drink") { RandomDrinkView(navController) }
         composable("random_meal") { RandomMealView(navController) }
         composable("non_alcoholic") { NonAlcoholicDrinksView(navController) }
+        composable("alcoholic_drinks") { AlcoholicDrinksView(navController) }
     }
 }

@@ -119,11 +119,11 @@ fun MixNMealComposable(
             MixNMealByArea(isDarkTheme, countries)
         }
         item {
-            MealsByCategoryRow(isDarkTheme, viewCategoryState)
+            MealsByCategoryRow(isDarkTheme, viewCategoryState, navController)
         }
 
         item{
-            AlcoholicDrinksRow(isDarkTheme,viewAlcoholicDrinksState.asReversed())
+            AlcoholicDrinksRow(isDarkTheme,viewAlcoholicDrinksState.asReversed(), navController)
         }
 
     }

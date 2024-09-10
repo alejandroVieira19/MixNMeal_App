@@ -31,11 +31,13 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
+import com.example.recipe_app.app_ui.view.meal.MealsByCategoryView
 import com.example.recipe_app.models.Category
 
 @Composable
-fun MealsByCategoryRow(darkTheme: Boolean, category: List<Category>) {
+fun MealsByCategoryRow(darkTheme: Boolean, category: List<Category>, navController: NavController) {
 
     Spacer(modifier = Modifier.height(16.dp))
 
@@ -50,7 +52,7 @@ fun MealsByCategoryRow(darkTheme: Boolean, category: List<Category>) {
         )
 
         IconButton(
-            onClick = {/* TODO ARROW FUNCTION PURPOSE */ },
+            onClick = { navController.navigate("food_categories")},
             modifier = Modifier.size(24.dp) // Adjust size to match the aesthetics
         ) {
             Icon(

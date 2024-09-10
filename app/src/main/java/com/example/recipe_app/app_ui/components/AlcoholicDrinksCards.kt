@@ -31,15 +31,16 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 
 import com.example.recipe_app.models.Drinks
-import com.example.recipe_app.models.DrinksResponse
 
 @Composable
 fun AlcoholicDrinksRow(
     darkTheme: Boolean,
-    alcoholicDrinksList: List<Drinks>
+    alcoholicDrinksList: List<Drinks>,
+    navController: NavController
 ) {
     Spacer(modifier = Modifier.height(16.dp))
 
@@ -54,7 +55,7 @@ fun AlcoholicDrinksRow(
         )
 
         IconButton(
-            onClick = {/* TODO ARROW FUNCTION PURPOSE */ },
+            onClick = {navController.navigate("alcoholic_drinks")},
             modifier = Modifier.size(24.dp) // Adjust size to match the aesthetics
         ) {
             Icon(
