@@ -2,6 +2,7 @@ package com.example.recipe_app.data
 
 import com.example.recipe_app.models.CategoriesResponse
 import com.example.recipe_app.models.CountryResponse
+import com.example.recipe_app.models.RandomMealResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -13,10 +14,6 @@ private val _retrofit = Retrofit.Builder().baseUrl("https://www.themealdb.com/ap
 // Creates a service using the Retrofit configuration
 // This service will use the ApiService interface to make requests to the defined base URL
 val recipeService = _retrofit.create(ApiService::class.java)
-
-private val _restCountriesRetrofit = Retrofit.Builder().baseUrl("https://restcountries.com/v3.1/").addConverterFactory(GsonConverterFactory.create()).build()
-
-val restCountryRecipeService = _restCountriesRetrofit.create(ApiService::class.java)
 
 
 interface ApiService {
@@ -31,8 +28,9 @@ interface ApiService {
     @GET("list.php?a=list")
     suspend fun getCountries(): CountryResponse
 
-    @GET("all")
-    suspend fun getRestCountries(): List<RestCountry>
+    @GET()
+    suspend fun getRandomMeal(): RandomMealResponse
+
 
 }
 
