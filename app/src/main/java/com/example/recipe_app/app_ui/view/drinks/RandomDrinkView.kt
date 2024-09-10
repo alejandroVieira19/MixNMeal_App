@@ -203,141 +203,37 @@ fun RandomDrinkIngredients(darkTheme: Boolean, drink: RandomDrink) {
 
     Spacer(modifier = Modifier.height(8.dp))
 
-    Column{
-        drink.strIngredient1?.let {
-            Text(
-                text = "- ${drink.strMeasure1} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
+
+    val ingredients = listOf(
+        drink.strIngredient1 to drink.strMeasure1,
+        drink.strIngredient2 to drink.strMeasure2,
+        drink.strIngredient3 to drink.strMeasure3,
+        drink.strIngredient4 to drink.strMeasure4,
+        drink.strIngredient5 to drink.strMeasure5,
+        drink.strIngredient6 to drink.strMeasure6,
+        drink.strIngredient7 to drink.strMeasure7,
+        drink.strIngredient8 to drink.strIngredient8,
+        drink.strIngredient9 to drink.strIngredient9,
+        drink.strIngredient10 to drink.strIngredient10,
+        drink.strIngredient11 to drink.strIngredient11,
+        drink.strIngredient12 to drink.strIngredient12,
+        drink.strIngredient13 to drink.strIngredient13,
+        drink.strIngredient14 to drink.strIngredient14)
+
+    Column {
+        for ((ingredient, measure) in ingredients) {
+            if (!ingredient.isNullOrEmpty()) {
+                Text(
+                    text = "- ${measure ?: ""} $ingredient",
+                    style = TextStyle(
+                        fontWeight = FontWeight.SemiBold,
+                        fontStyle = FontStyle.Italic,
+                        fontSize = 20.sp,
+                        color = if (darkTheme) Color.White else Color.Black
+                    )
                 )
-            )
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient2?.let {
-            Text(
-                text = "- ${drink.strMeasure2} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                )
-            )
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient3?.let {
-            Text(text = "- ${drink.strMeasure3} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                )
-            )
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient4?.let {
-            Text(text = "- ${drink.strMeasure4} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                ))
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient5?.let {
-            Text(text = "- ${drink.strMeasure5} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                ))
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient6?.let {
-            Text(text = "- ${drink.strMeasure6} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                ))
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient7?.let {
-            Text(text = "- ${drink.strMeasure7} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                ))
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient8?.let {
-            Text(text = "- ${drink.strIngredient8} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                ))
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient9?.let {
-            Text(text = "- ${drink.strIngredient9} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                ))
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient10?.let {
-            Text(text = "- ${drink.strIngredient10} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                ))
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient11?.let {
-            Text(text = "- ${drink.strIngredient11} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                ))
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient12?.let {
-            Text(text = "- ${drink.strIngredient12} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                ))
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        drink.strIngredient13?.let {
-            Text(text = "- ${drink.strIngredient13} $it",
-                style = TextStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 20.sp,
-                    color = if (darkTheme) Color.White else Color.Black
-                )
-            )
+                Spacer(modifier = Modifier.height(8.dp))
+            }
         }
     }
 }
