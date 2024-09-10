@@ -1,4 +1,4 @@
-package com.example.recipe_app.app_ui.View.meal
+package com.example.recipe_app.app_ui.view.meal
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -41,7 +41,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.recipe_app.app_ui.ViewModel.meals.CategoryViewModel
+import com.example.recipe_app.app_ui.viewModel.meals.CategoryViewModel
 import com.example.recipe_app.app_ui.components.DividerComposable
 import com.example.recipe_app.models.Category
 

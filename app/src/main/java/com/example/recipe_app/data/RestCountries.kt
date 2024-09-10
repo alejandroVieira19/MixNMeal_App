@@ -3,7 +3,7 @@ package com.example.recipe_app.data
 import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
-import com.example.recipe_app.app_ui.ViewModel.CountryViewModel.RestCountryState
+import com.example.recipe_app.app_ui.viewModel.CountryViewModel.RestCountryState
 import com.google.gson.annotations.SerializedName
 
 

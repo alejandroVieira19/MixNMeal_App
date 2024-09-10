@@ -1,4 +1,4 @@
-package com.example.recipe_app.app_ui.ViewModel.meals
+package com.example.recipe_app.app_ui.viewModel.meals
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf

@@ -11,9 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.recipe_app.app_ui.View.MixNMealView
-import com.example.recipe_app.app_ui.View.drinks.RandomDrinkView
-import com.example.recipe_app.app_ui.View.meal.MealsByCategoryView
+import com.example.recipe_app.app_ui.view.MixNMealView
+import com.example.recipe_app.app_ui.view.drinks.RandomDrinkView
+import com.example.recipe_app.app_ui.view.meal.MealsByCategoryView
 import com.example.recipe_app.ui.theme.Recipe_AppTheme
 
 class MainActivity : ComponentActivity() {

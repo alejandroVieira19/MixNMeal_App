@@ -1,4 +1,4 @@
-package com.example.recipe_app.app_ui.View
+package com.example.recipe_app.app_ui.view
 
 
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -28,9 +28,9 @@ import androidx.navigation.NavController
 import com.example.recipe_app.models.Category
 import com.example.recipe_app.models.Country
 
-import com.example.recipe_app.app_ui.ViewModel.drinks.AlcoholicDrinksViewModel
-import com.example.recipe_app.app_ui.ViewModel.meals.CategoryViewModel
-import com.example.recipe_app.app_ui.ViewModel.CountryViewModel
+import com.example.recipe_app.app_ui.viewModel.drinks.AlcoholicDrinksViewModel
+import com.example.recipe_app.app_ui.viewModel.meals.CategoryViewModel
+import com.example.recipe_app.app_ui.viewModel.CountryViewModel
 import com.example.recipe_app.app_ui.components.AlcoholicDrinksRow
 import com.example.recipe_app.app_ui.components.FilterSection
 import com.example.recipe_app.app_ui.components.MealsByCategoryRow
