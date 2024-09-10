@@ -6,14 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 
 import com.example.recipe_app.data.cocktailService
-import com.example.recipe_app.models.AlcoholicDrinks
+import com.example.recipe_app.models.Drinks
 import kotlinx.coroutines.launch
 
 class AlcoholicDrinksViewModel: ViewModel() {
 
     data class AlcoholicDrinksRecipeState(
         val loading: Boolean = true, // Indicates whether data is being loaded; defaults to true.
-        val list: List<AlcoholicDrinks> = emptyList(), // A list of categories, defaults to an empty list.
+        val list: List<Drinks> = emptyList(), // A list of categories, defaults to an empty list.
         val error: String? = null // An error message, defaults to null indicating no error.
     )
 
@@ -33,7 +33,7 @@ class AlcoholicDrinksViewModel: ViewModel() {
 
                 // Updates the state with the new list of categories, sets loading to false, and clears any errors.
                 _alcoholicDrinksState.value = _alcoholicDrinksState.value.copy(
-                    list = response.alcoholicDrinksList,
+                    list = response.drinksList,
                     loading = false,
                     error = null
                 )

@@ -35,7 +35,7 @@ import com.example.recipe_app.app_ui.components.AlcoholicDrinksRow
 import com.example.recipe_app.app_ui.components.FilterSection
 import com.example.recipe_app.app_ui.components.MealsByCategoryRow
 import com.example.recipe_app.app_ui.components.MixNMealByArea
-import com.example.recipe_app.models.AlcoholicDrinks
+import com.example.recipe_app.models.Drinks
 
 
 @Composable
@@ -86,7 +86,7 @@ fun MixNMealView(navController: NavController, modifier: Modifier = Modifier) {
 fun MixNMealComposable(
     countries: List<Country>,
     viewCategoryState: List<Category>,
-    viewAlcoholicDrinksState: List<AlcoholicDrinks>,
+    viewAlcoholicDrinksState: List<Drinks>,
     navController: NavController,
 
     ) {

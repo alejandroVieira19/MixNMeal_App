@@ -32,12 +32,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
-import com.example.recipe_app.models.AlcoholicDrinks
+
+import com.example.recipe_app.models.Drinks
+import com.example.recipe_app.models.DrinksResponse
 
 @Composable
 fun AlcoholicDrinksRow(
     darkTheme: Boolean,
-    alcoholicDrinksList: List<AlcoholicDrinks>
+    alcoholicDrinksList: List<Drinks>
 ) {
     Spacer(modifier = Modifier.height(16.dp))
 
@@ -69,7 +71,7 @@ fun AlcoholicDrinksRow(
 }
 
 @Composable
-fun AlcoholicDrinksCards(darkTheme: Boolean, alcoholicDrinks: AlcoholicDrinks) {
+fun AlcoholicDrinksCards(darkTheme: Boolean, alcoholicDrinks: Drinks) {
     Card(
         modifier = Modifier
             .padding(8.dp)

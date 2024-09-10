@@ -2,7 +2,7 @@ package com.example.recipe_app.models
 
 import com.google.gson.annotations.SerializedName
 
-data class AlcoholicDrinks(
+data class Drinks(
     @SerializedName("strDrink")    val strDrink: String,
     @SerializedName("strDrinkThumb")  val strDrinkThumb: String,
     @SerializedName("idDrink")  val idDrink: String
@@ -49,7 +49,6 @@ data class RandomDrink(
     @SerializedName("strMeasure7") val strMeasure7: String?
 )
 
-
-data class AlcoholicDrinksResponse(@SerializedName("drinks") val alcoholicDrinksList: List<AlcoholicDrinks>)
+data class DrinksResponse(@SerializedName("drinks") val drinksList: List<Drinks>)
 
 data class RandomDrinkResponse(@SerializedName("drinks") val randomDrinkList: List<RandomDrink>)

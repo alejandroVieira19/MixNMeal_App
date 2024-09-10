@@ -1,6 +1,6 @@
 package com.example.recipe_app.data
 
-import com.example.recipe_app.models.AlcoholicDrinksResponse
+import com.example.recipe_app.models.DrinksResponse
 import com.example.recipe_app.models.RandomDrinkResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,8 +13,10 @@ val cocktailService = _CocktailApiRetrofit.create(CocktailDBApiServiceInterface:
 
 interface CocktailDBApiServiceInterface {
     @GET("filter.php?a=Alcoholic")
+    suspend fun getAlcoholicDrinks(): DrinksResponse
 
-    suspend fun getAlcoholicDrinks(): AlcoholicDrinksResponse
+    @GET("filter.php?a=Non_Alcoholic")
+    suspend fun getNonAlcoholicDrinks(): DrinksResponse
 
     @GET("random.php")
     suspend fun getRandomDrink(): RandomDrinkResponse
