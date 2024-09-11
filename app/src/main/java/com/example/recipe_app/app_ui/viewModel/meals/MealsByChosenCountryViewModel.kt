@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class MealsByChosenCountryViewModel: ViewModel() {
 
-    class MealsByChosenCountryState : ViewModel() {
+
         data class AllMealsByCategoryChosenState(
             val loading: Boolean = true, // Indicates whether data is being loaded; defaults to true.
             val list: List<Meal> = emptyList(), // A list of categories, defaults to an empty list.
@@ -52,4 +52,4 @@ class MealsByChosenCountryViewModel: ViewModel() {
         }
 
     }
-}
+

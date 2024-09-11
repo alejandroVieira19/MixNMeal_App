@@ -32,11 +32,12 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.recipe_app.models.Country
 import com.example.recipe_app.utils.getDrawableResourceId
 
 @Composable
-fun MixNMealByArea(darkTheme: Boolean, countries: List<Country>) {
+fun MixNMealByArea(darkTheme: Boolean, countries: List<Country>, navController: NavController) {
 
     Spacer(modifier = Modifier.height(20.dp))
 
@@ -61,13 +62,13 @@ fun MixNMealByArea(darkTheme: Boolean, countries: List<Country>) {
     }
 
     LazyRow{items(countries.take(5)) { country ->
-        MealByAreaCard(darkTheme,country)
+        MealByAreaCard(darkTheme,country, navController)
     }
     }
 }
 
 @Composable
-fun MealByAreaCard(darkTheme: Boolean, country: Country) {
+fun MealByAreaCard(darkTheme: Boolean, country: Country, navController: NavController) {
 
     val imageId = getDrawableResourceId(country.strArea)
 
@@ -75,7 +76,7 @@ fun MealByAreaCard(darkTheme: Boolean, country: Country) {
         modifier = Modifier
             .padding(8.dp)
             .size(width = 150.dp, height = 220.dp)
-            .clickable(onClick = {}), // Adjust size as needed
+            .clickable(onClick = {navController.navigate("meals_by_country/${country.strArea}")}), // Adjust size as needed
         shape = RoundedCornerShape(16.dp),
 
         ) {

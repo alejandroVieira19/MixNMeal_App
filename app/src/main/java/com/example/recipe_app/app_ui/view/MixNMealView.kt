@@ -116,7 +116,7 @@ fun MixNMealComposable(
         }
 
         item {
-            MixNMealByArea(isDarkTheme, countries)
+            MixNMealByArea(isDarkTheme, countries, navController)
         }
         item {
             MealsByCategoryRow(isDarkTheme, viewCategoryState, navController)
