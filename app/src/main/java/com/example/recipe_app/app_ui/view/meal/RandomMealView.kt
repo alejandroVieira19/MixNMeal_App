@@ -1,5 +1,8 @@
 package com.example.recipe_app.app_ui.view.meal
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -14,6 +17,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.HorizontalDivider
@@ -27,10 +31,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -113,8 +120,93 @@ private fun MealScreen(meal: MealDetails) {
         RandomMealImage(darkTheme, meal.strMealThumb)
         RandomMealDetails(darkTheme, meal)
         RandomMealIngredients(darkTheme, meal)
+
+        if (!meal.strSource.isNullOrEmpty() || !meal.strYoutube.isNullOrEmpty() || !meal.strImageSource.isNullOrEmpty()) {
+            DividerComposable(isDarkTheme = darkTheme)
+            RandomMealMoreInfo(darkTheme, meal)
+        }
+
+
     }
 }
+
+@Composable
+fun ClickableText(text: String, url: String, context: Context, darkTheme: Boolean) = ClickableText(
+    text = buildAnnotatedString {
+        withStyle(style = TextStyle(
+            fontWeight = FontWeight.SemiBold,
+            fontStyle = FontStyle.Italic,
+            fontSize = 16.sp,
+            color = if (darkTheme) Color.Red else Color.Black
+        ).toSpanStyle()) {
+            append(text)
+        }
+    },
+    onClick = {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        context.startActivity(intent)
+    }
+)
+
+@Composable
+fun RandomMealMoreInfo(darkTheme: Boolean, meal: MealDetails) {
+    val context = LocalContext.current
+
+    Text(
+        text = "More Information:",
+        style = TextStyle(
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 30.sp,
+            color = if (darkTheme) Color.White else Color.Black
+        )
+    )
+
+    if (!meal.strSource.isNullOrEmpty()) {
+        Spacer(modifier = Modifier.height(8.dp))
+        Row {
+            Text(
+                text = "Source: ",
+                style = TextStyle(
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 20.sp,
+                    color = if (darkTheme) Color.White else Color.Black
+                )
+            )
+            ClickableText(meal.strSource, meal.strSource,context,darkTheme)
+        }
+    }
+
+    if (!meal.strYoutube.isNullOrEmpty()) {
+        Spacer(modifier = Modifier.height(16.dp))
+        Row {
+            Text(
+                text = "Youtube: ",
+                style = TextStyle(
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 20.sp,
+                    color = if (darkTheme) Color.White else Color.Black
+                )
+            )
+            ClickableText(meal.strYoutube, meal.strYoutube, context, darkTheme)
+        }
+    }
+
+    if (!meal.strImageSource.isNullOrEmpty()) {
+        Spacer(modifier = Modifier.height(16.dp))
+        Row {
+            Text(
+                text = "Image Source: ",
+                style = TextStyle(
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 20.sp,
+                    color = if (darkTheme) Color.White else Color.Black
+                )
+            )
+            ClickableText(meal.strImageSource, meal.strImageSource, context, darkTheme)
+        }
+    }
+}
+
 
 @Composable
 fun RandomMealHeadText(darkTheme: Boolean, mealName: String) {
@@ -183,8 +275,7 @@ fun RandomMealDetails(darkTheme: Boolean, meal: MealDetails) {
 
 @Composable
 fun RandomMealIngredients(darkTheme: Boolean, meal: MealDetails) {
-    Spacer(modifier = Modifier.height(24.dp))
-
+    DividerComposable(isDarkTheme = darkTheme)
     Text(
         text = "Meal Ingredients:",
         style = TextStyle(
