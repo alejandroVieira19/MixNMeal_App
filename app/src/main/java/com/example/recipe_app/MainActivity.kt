@@ -13,6 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.recipe_app.app_ui.view.MixNMealView
 import com.example.recipe_app.app_ui.view.drinks.AlcoholicDrinksView
+import com.example.recipe_app.app_ui.view.drinks.DrinkDetailView
 import com.example.recipe_app.app_ui.view.drinks.NonAlcoholicDrinksView
 import com.example.recipe_app.app_ui.view.drinks.RandomDrinkView
 import com.example.recipe_app.app_ui.view.meal.MealDetailView
@@ -56,8 +57,9 @@ fun MixNMealApp() {
                 backStackEntry -> val mealId = backStackEntry.arguments?.getString("id") ?: ""
                 MealDetailView(navController, mealId)}
 
-
-
-
+        composable("drink_detail/{id}"){
+                backStackEntry -> val drinkId = backStackEntry.arguments?.getString("id") ?: ""
+            DrinkDetailView(navController, drinkId)
+        }
     }
 }

@@ -51,5 +51,8 @@ interface ApiService {
 
     @GET("lookup.php?")
     suspend fun getMealDetailFromId(@Query("i") mealId: String): MealDetailResponse
+
+    @GET("filter.php?")
+    suspend fun getMealsFromChosenCountry(@Query("a") chosenCountry: String): MealsResponse
 }
 

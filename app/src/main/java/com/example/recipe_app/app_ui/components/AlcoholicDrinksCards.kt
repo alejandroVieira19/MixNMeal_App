@@ -66,22 +66,19 @@ fun AlcoholicDrinksRow(
         }
     }
     LazyRow{items(alcoholicDrinksList.take(5)) { alcoholicDrinks ->
-        AlcoholicDrinksCards(darkTheme,alcoholicDrinks)
+        AlcoholicDrinksCards(darkTheme,alcoholicDrinks,navController)
     }
     }
 }
 
 @Composable
-fun AlcoholicDrinksCards(darkTheme: Boolean, alcoholicDrinks: Drinks) {
+fun AlcoholicDrinksCards(darkTheme: Boolean, alcoholicDrinks: Drinks, navController: NavController) {
     Card(
         modifier = Modifier
             .padding(8.dp)
             .size(width = 200.dp, height = 250.dp)
-            .clickable(onClick = {}), // Adjust size as needed
-
-        shape = RoundedCornerShape(16.dp),
-
-
+            .clickable(onClick = {navController.navigate("drink_detail/${alcoholicDrinks.idDrink}")}), // Adjust size as needed
+             shape = RoundedCornerShape(16.dp),
         ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,

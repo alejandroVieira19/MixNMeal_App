@@ -128,7 +128,7 @@ fun NonAlcoholicDrinksScreen(
         DividerComposable(darkTheme)
         LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
             items(nonAlcoholicDrinks) { drinks ->
-                NonAlcoholicDrinksItem(drinks, darkTheme)
+                NonAlcoholicDrinksItem(drinks, darkTheme, navController)
 
             }
         }
@@ -137,13 +137,13 @@ fun NonAlcoholicDrinksScreen(
 }
 
 @Composable
-fun NonAlcoholicDrinksItem(drinks: Drinks, darkTheme: Boolean) {
+fun NonAlcoholicDrinksItem(drinks: Drinks, darkTheme: Boolean, navController: NavController) {
     Card(
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth()
             .wrapContentHeight()
-            .clickable(onClick = {}),
+            .clickable(onClick = {navController.navigate("drink_detail/${drinks.idDrink}")}),
         shape = RoundedCornerShape(16.dp)
     ) {
         Box(
