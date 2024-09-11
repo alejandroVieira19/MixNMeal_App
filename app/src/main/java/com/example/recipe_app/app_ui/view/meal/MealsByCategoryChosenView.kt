@@ -121,23 +121,20 @@ fun MealsByCategoryChosenScreen(meals: List<Meal>, navController: NavController,
         DividerComposable(darkTheme)
         LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
             items(meals) { meals ->
-                AllMealsByCategoryChosenItem(meals, darkTheme)
+                AllMealsByCategoryChosenItem(meals, darkTheme, navController)
             }
         }
     }
 }
 
-
-
-
 @Composable
-fun AllMealsByCategoryChosenItem(category: Meal, darkTheme: Boolean) {
+fun AllMealsByCategoryChosenItem(meal: Meal, darkTheme: Boolean, navController: NavController) {
     Card(
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth()
             .wrapContentHeight()
-            .clickable(onClick = {}),
+            .clickable(onClick = {navController.navigate("meal_detail/${meal.id}")}),
         shape = RoundedCornerShape(16.dp)
     ) {
         Box(
@@ -153,7 +150,7 @@ fun AllMealsByCategoryChosenItem(category: Meal, darkTheme: Boolean) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Image(
-                    painter = rememberAsyncImagePainter(category.imageUrl),
+                    painter = rememberAsyncImagePainter(meal.imageUrl),
                     contentDescription = null,
                     modifier = Modifier
                         .fillMaxWidth()
@@ -171,7 +168,7 @@ fun AllMealsByCategoryChosenItem(category: Meal, darkTheme: Boolean) {
                 )
 
                 Text(
-                    text = category.name,
+                    text = meal.name,
                     color = if(darkTheme) Color.White else Color.LightGray,
                     style = TextStyle(
                         fontWeight = FontWeight.Bold,
