@@ -278,13 +278,14 @@ fun RandomDrinkIngredients(darkTheme: Boolean, drink: DrinkDetail) {
         drink.strIngredient5 to drink.strMeasure5,
         drink.strIngredient6 to drink.strMeasure6,
         drink.strIngredient7 to drink.strMeasure7,
-        drink.strIngredient8 to drink.strIngredient8,
-        drink.strIngredient9 to drink.strIngredient9,
-        drink.strIngredient10 to drink.strIngredient10,
-        drink.strIngredient11 to drink.strIngredient11,
-        drink.strIngredient12 to drink.strIngredient12,
-        drink.strIngredient13 to drink.strIngredient13,
-        drink.strIngredient14 to drink.strIngredient14)
+        drink.strIngredient8 to drink.strMeasure8,
+        drink.strIngredient9 to drink.strMeasure9,
+        drink.strIngredient10 to drink.strMeasure10,
+        drink.strIngredient11 to drink.strMeasure11,
+        drink.strIngredient12 to drink.strMeasure12,
+        drink.strIngredient13 to drink.strMeasure13,
+        drink.strIngredient14 to drink.strMeasure14,
+        drink.strIngredient15 to drink.strMeasure15)
 
     Column {
         for ((ingredient, measure) in ingredients) {
