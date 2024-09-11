@@ -44,8 +44,7 @@ import com.example.recipe_app.app_ui.viewModel.drinks.RandomDrinkViewModel
 
 import com.example.recipe_app.app_ui.components.DividerComposable
 import com.example.recipe_app.app_ui.view.meal.ClickableText
-import com.example.recipe_app.app_ui.view.meal.RandomMealMoreInfo
-import com.example.recipe_app.models.RandomDrink
+import com.example.recipe_app.models.DrinkDetail
 
 @Composable
 fun RandomDrinkView(navController: NavController) {
@@ -100,7 +99,7 @@ fun RandomDrinkView(navController: NavController) {
 
 
 @Composable
-fun RandomDrinkScreen(drinks: List<RandomDrink>) {
+fun RandomDrinkScreen(drinks: List<DrinkDetail>) {
     LazyColumn(
         contentPadding = PaddingValues(16.dp)
     ) {
@@ -111,7 +110,7 @@ fun RandomDrinkScreen(drinks: List<RandomDrink>) {
 }
 
 @Composable
-fun DrinkScreen(drink: RandomDrink) {
+fun DrinkScreen(drink: DrinkDetail) {
     val darkTheme = isSystemInDarkTheme()
     Column(
         modifier = Modifier.fillMaxSize()
@@ -129,7 +128,7 @@ fun DrinkScreen(drink: RandomDrink) {
 }
 
 @Composable
-fun RandomDrinkMoreInfo(darkTheme: Boolean, drink: RandomDrink) {
+fun RandomDrinkMoreInfo(darkTheme: Boolean, drink: DrinkDetail) {
     val context = LocalContext.current
 
     Text(
@@ -224,7 +223,7 @@ fun RandomDrinkImage(darkTheme: Boolean, strDrinkThumb: String?) {
 
 
 @Composable
-fun RandomDrinkDetails(darkTheme: Boolean, drink: RandomDrink) {
+fun RandomDrinkDetails(darkTheme: Boolean, drink: DrinkDetail) {
     Spacer(modifier = Modifier.height(16.dp))
     Text(
         text = "Category: ${drink.strCategory}",
@@ -254,7 +253,7 @@ fun RandomDrinkDetails(darkTheme: Boolean, drink: RandomDrink) {
 
 
 @Composable
-fun RandomDrinkIngredients(darkTheme: Boolean, drink: RandomDrink) {
+fun RandomDrinkIngredients(darkTheme: Boolean, drink: DrinkDetail) {
 
     Spacer(modifier = Modifier.height(24.dp))
 

@@ -5,14 +5,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.recipe_app.data.cocktailService
-import com.example.recipe_app.models.RandomDrink
+import com.example.recipe_app.models.DrinkDetail
 import kotlinx.coroutines.launch
 
 class RandomDrinkViewModel: ViewModel() {
 
     data class RandomDrinkState(
         val loading: Boolean = true, // Indicates whether data is being loaded; defaults to true.
-        val list: List<RandomDrink> = emptyList(), // A list of categories, defaults to an empty list.
+        val list: List<DrinkDetail> = emptyList(), // A list of categories, defaults to an empty list.
         val error: String? = null // An error message, defaults to null indicating no error.
     )
 
@@ -32,7 +32,7 @@ class RandomDrinkViewModel: ViewModel() {
 
                 // Updates the state with the new list of categories, sets loading to false, and clears any errors.
                 _randomDrinkState.value = _randomDrinkState.value.copy(
-                    list = response.randomDrinkList,
+                    list = response.drinkDetailList,
                     loading = false,
                     error = null
                 )

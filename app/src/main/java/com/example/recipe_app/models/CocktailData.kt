@@ -8,7 +8,7 @@ data class Drinks(
     @SerializedName("idDrink")  val idDrink: String
 )
 
-data class RandomDrink(
+data class DrinkDetail(
     @SerializedName("idDrink") val idDrink: String,
     @SerializedName("strDrink") val strDrink: String,
     @SerializedName("strDrinkAlternate") val strDrinkAlternate: String?,
@@ -40,15 +40,25 @@ data class RandomDrink(
     @SerializedName("strIngredient12") val strIngredient12: String?,
     @SerializedName("strIngredient13") val strIngredient13: String?,
     @SerializedName("strIngredient14") val strIngredient14: String?,
+    @SerializedName("strIngredient15") val strIngredient15: String?,
     @SerializedName("strMeasure1") val strMeasure1: String?,
     @SerializedName("strMeasure2") val strMeasure2: String?,
     @SerializedName("strMeasure3") val strMeasure3: String?,
     @SerializedName("strMeasure4") val strMeasure4: String?,
     @SerializedName("strMeasure5") val strMeasure5: String?,
     @SerializedName("strMeasure6") val strMeasure6: String?,
-    @SerializedName("strMeasure7") val strMeasure7: String?
-)
+    @SerializedName("strMeasure7") val strMeasure7: String?,
+    @SerializedName("strMeasure8") val strMeasure8: String?,
+    @SerializedName("strMeasure9") val strMeasure9: String?,
+    @SerializedName("strMeasure10") val strMeasure10: String?,
+    @SerializedName("strMeasure11") val strMeasure11: String?,
+    @SerializedName("strMeasure12") val strMeasure12: String?,
+    @SerializedName("strMeasure13") val strMeasure13: String?,
+    @SerializedName("strMeasure14") val strMeasure14: String?,
+    @SerializedName("strMeasure15") val strMeasure15: String?,
+
+    )
 
 data class DrinksResponse(@SerializedName("drinks") val drinksList: List<Drinks>)
 
-data class RandomDrinkResponse(@SerializedName("drinks") val randomDrinkList: List<RandomDrink>)
+data class DrinkDetailResponse(@SerializedName("drinks") val drinkDetailList: List<DrinkDetail>)
