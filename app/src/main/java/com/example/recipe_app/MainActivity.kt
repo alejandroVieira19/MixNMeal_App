@@ -15,6 +15,7 @@ import com.example.recipe_app.app_ui.view.MixNMealView
 import com.example.recipe_app.app_ui.view.drinks.AlcoholicDrinksView
 import com.example.recipe_app.app_ui.view.drinks.NonAlcoholicDrinksView
 import com.example.recipe_app.app_ui.view.drinks.RandomDrinkView
+import com.example.recipe_app.app_ui.view.meal.MealsByCategoryChosenView
 import com.example.recipe_app.app_ui.view.meal.MealsByCategoryView
 import com.example.recipe_app.app_ui.view.meal.RandomMealView
 import com.example.recipe_app.ui.theme.Recipe_AppTheme
@@ -45,5 +46,10 @@ fun MixNMealApp() {
         composable("random_meal") { RandomMealView(navController) }
         composable("non_alcoholic") { NonAlcoholicDrinksView(navController) }
         composable("alcoholic_drinks") { AlcoholicDrinksView(navController) }
+
+        composable("all_meals_by_category_chosen/{category}"){
+            backStackEntry -> val categoryChosen = backStackEntry.arguments?.getString("category") ?: ""
+            MealsByCategoryChosenView(navController, categoryChosen)}
+
     }
 }

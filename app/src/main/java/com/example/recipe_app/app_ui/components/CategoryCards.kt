@@ -33,11 +33,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.recipe_app.app_ui.view.meal.MealsByCategoryView
 import com.example.recipe_app.models.Category
 
 @Composable
-fun MealsByCategoryRow(darkTheme: Boolean, category: List<Category>, navController: NavController) {
+fun MealsByCategoryRow(darkTheme: Boolean,
+                       category: List<Category>,
+                       navController: NavController) {
 
     Spacer(modifier = Modifier.height(16.dp))
 
@@ -64,18 +65,18 @@ fun MealsByCategoryRow(darkTheme: Boolean, category: List<Category>, navControll
     }
 
     LazyRow{items(category.take(5)) { category ->
-        CategoryCard(darkTheme,category)
+        CategoryCard(darkTheme,category,navController)
     }
     }
 }
 
 @Composable
-fun CategoryCard(darkTheme: Boolean, category: Category) {
+fun CategoryCard(darkTheme: Boolean, category: Category, navController: NavController) {
     Card(
         modifier = Modifier
             .padding(8.dp)
             .size(width = 180.dp, height = 240.dp)
-            .clickable(onClick = {}), // Adjust size as needed
+            .clickable(onClick = {navController.navigate("all_meals_by_category_chosen/${category.strCategory}")}), // Adjust size as needed
         shape = RoundedCornerShape(16.dp),
 
         ) {

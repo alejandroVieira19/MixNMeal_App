@@ -65,3 +65,13 @@ data class RandomMeal(
     @SerializedName("dateModified") val dateModified: String?
 )
 data class RandomMealResponse(@SerializedName("meals") val randomMealInfo: List<RandomMeal>)
+
+
+data class MealsResponse(@SerializedName("meals") val meals: List<Meal>)
+
+data class Meal(
+    @SerializedName("strMeal") val name: String,
+
+    @SerializedName("strMealThumb") val imageUrl: String,
+
+    @SerializedName("idMeal") val id: String)

@@ -1,11 +1,17 @@
 package com.example.recipe_app.data
 
+
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import com.example.recipe_app.models.CategoriesResponse
 import com.example.recipe_app.models.CountryResponse
+import com.example.recipe_app.models.MealsResponse
 import com.example.recipe_app.models.RandomMealResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 
 // Configures the Retrofit instance for communication with the internet
@@ -18,6 +24,10 @@ val recipeService = _retrofit.create(ApiService::class.java)
 private val _restCountriesRetrofit = Retrofit.Builder().baseUrl("https://restcountries.com/v3.1/").addConverterFactory(GsonConverterFactory.create()).build()
 
 val restCountryRecipeService = _restCountriesRetrofit.create(ApiService::class.java)
+
+var foodCategoryChosen = { mutableStateOf("") }
+
+
 
 
 interface ApiService {
@@ -37,5 +47,8 @@ interface ApiService {
 
     @GET("random.php")
     suspend fun getRandomMeal(): RandomMealResponse
+
+    @GET("filter.php?c=")
+    suspend fun getMealsByCategorySelected( @Query("c") categoryChosen: String): MealsResponse
 }
 

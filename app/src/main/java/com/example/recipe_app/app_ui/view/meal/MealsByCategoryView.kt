@@ -73,7 +73,6 @@ fun MealsByCategoryView(navController: NavController,modifier: Modifier = Modifi
 }
 
 @Composable
-
 fun MealCategoryScreen(categories: List<Category>, navController: NavController) {
     val darkTheme = isSystemInDarkTheme()
 
