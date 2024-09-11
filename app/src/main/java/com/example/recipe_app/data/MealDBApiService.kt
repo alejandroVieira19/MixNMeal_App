@@ -1,13 +1,11 @@
 package com.example.recipe_app.data
 
 
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import com.example.recipe_app.models.CategoriesResponse
 import com.example.recipe_app.models.CountryResponse
 import com.example.recipe_app.models.MealsResponse
-import com.example.recipe_app.models.RandomMealResponse
+import com.example.recipe_app.models.MealDetailResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -46,9 +44,12 @@ interface ApiService {
     suspend fun getRestCountries(): List<RestCountry>
 
     @GET("random.php")
-    suspend fun getRandomMeal(): RandomMealResponse
+    suspend fun getRandomMeal(): MealDetailResponse
 
-    @GET("filter.php?c=")
+    @GET("filter.php?")
     suspend fun getMealsByCategorySelected( @Query("c") categoryChosen: String): MealsResponse
+
+    @GET("lookup.php?")
+    suspend fun getMealDetailFromId(@Query("i") mealId: String): MealDetailResponse
 }
 

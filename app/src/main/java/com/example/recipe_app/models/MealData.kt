@@ -9,7 +9,8 @@ data class Category(val idCategory:String,
     val strCategoryDescription:String)
 data class CategoriesResponse(val categories: List<Category>)
 
-data class RandomMeal(
+data class MealDetails(
+
     @SerializedName("idMeal") val idMeal: String,
     @SerializedName("strMeal") val strMeal: String,
     @SerializedName("strDrinkAlternate") val strDrinkAlternate: String?,
@@ -64,7 +65,7 @@ data class RandomMeal(
     @SerializedName("strCreativeCommonsConfirmed") val strCreativeCommonsConfirmed: String?,
     @SerializedName("dateModified") val dateModified: String?
 )
-data class RandomMealResponse(@SerializedName("meals") val randomMealInfo: List<RandomMeal>)
+data class MealDetailResponse(@SerializedName("meals") val mealDetailsInfo: List<MealDetails>)
 
 
 data class MealsResponse(@SerializedName("meals") val meals: List<Meal>)

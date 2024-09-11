@@ -38,7 +38,7 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.recipe_app.app_ui.components.DividerComposable
 import com.example.recipe_app.app_ui.viewModel.meals.RandomMealViewModel
-import com.example.recipe_app.models.RandomMeal
+import com.example.recipe_app.models.MealDetails
 
 @Composable
 fun RandomMealView(navController: NavController) {
@@ -92,11 +92,11 @@ fun RandomMealView(navController: NavController) {
 }
 
 @Composable
-fun RandomMealScreen(randomMeal: List<RandomMeal>) {
+fun RandomMealScreen(mealDetails: List<MealDetails>) {
     LazyColumn(
         contentPadding = PaddingValues(16.dp)
     ) {
-        items(randomMeal) { meal ->
+        items(mealDetails) { meal ->
             MealScreen(meal)
         }
     }
@@ -104,7 +104,7 @@ fun RandomMealScreen(randomMeal: List<RandomMeal>) {
 }
 
 @Composable
-private fun MealScreen(meal: RandomMeal) {
+private fun MealScreen(meal: MealDetails) {
     val darkTheme = isSystemInDarkTheme()
     Column(
         modifier = Modifier.fillMaxSize()
@@ -148,7 +148,7 @@ fun RandomMealImage(darkTheme: Boolean, mealImage: String) {
 }
 
 @Composable
-fun RandomMealDetails(darkTheme: Boolean, meal: RandomMeal) {
+fun RandomMealDetails(darkTheme: Boolean, meal: MealDetails) {
     Spacer(modifier = Modifier.height(16.dp))
     Text(
         text = "Category: ${meal.strCategory}",
@@ -182,7 +182,7 @@ fun RandomMealDetails(darkTheme: Boolean, meal: RandomMeal) {
 }
 
 @Composable
-fun RandomMealIngredients(darkTheme: Boolean, meal: RandomMeal) {
+fun RandomMealIngredients(darkTheme: Boolean, meal: MealDetails) {
     Spacer(modifier = Modifier.height(24.dp))
 
     Text(
