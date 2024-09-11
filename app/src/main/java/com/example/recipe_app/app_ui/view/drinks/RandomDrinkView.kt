@@ -29,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -42,6 +43,8 @@ import coil.compose.AsyncImage
 import com.example.recipe_app.app_ui.viewModel.drinks.RandomDrinkViewModel
 
 import com.example.recipe_app.app_ui.components.DividerComposable
+import com.example.recipe_app.app_ui.view.meal.ClickableText
+import com.example.recipe_app.app_ui.view.meal.RandomMealMoreInfo
 import com.example.recipe_app.models.RandomDrink
 
 @Composable
@@ -117,9 +120,73 @@ fun DrinkScreen(drink: RandomDrink) {
         RandomDrinkImage(darkTheme, drink.strDrinkThumb)
         RandomDrinkDetails(darkTheme, drink)
         RandomDrinkIngredients(darkTheme, drink)
+
+        if (!drink.strDrinkAlternate.isNullOrEmpty() || !drink.strTags.isNullOrEmpty() || !drink.strVideo.isNullOrEmpty()) {
+            DividerComposable(isDarkTheme = darkTheme)
+            RandomDrinkMoreInfo(darkTheme, drink)
+        }
     }
 }
 
+@Composable
+fun RandomDrinkMoreInfo(darkTheme: Boolean, drink: RandomDrink) {
+    val context = LocalContext.current
+
+    Text(
+        text = "More Information:",
+        style = TextStyle(
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 30.sp,
+            color = if (darkTheme) Color.White else Color.Black
+        )
+    )
+
+    if (!drink.strDrinkAlternate.isNullOrEmpty()) {
+        Spacer(modifier = Modifier.height(8.dp))
+        Row {
+            Text(
+                text = "Alternate Drink: ",
+                style = TextStyle(
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 20.sp,
+                    color = if (darkTheme) Color.White else Color.Black
+                )
+            )
+            ClickableText(drink.strDrinkAlternate, drink.strDrinkAlternate,context,darkTheme)
+        }
+    }
+
+    if (!drink.strVideo.isNullOrEmpty()) {
+        Spacer(modifier = Modifier.height(16.dp))
+        Row {
+            Text(
+                text = "Video: ",
+                style = TextStyle(
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 20.sp,
+                    color = if (darkTheme) Color.White else Color.Black
+                )
+            )
+            ClickableText(drink.strVideo, drink.strVideo, context, darkTheme)
+        }
+    }
+
+    if (!drink.strTags.isNullOrEmpty()) {
+        Spacer(modifier = Modifier.height(16.dp))
+        Row {
+            Text(
+                text = "Tags: ",
+                style = TextStyle(
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 20.sp,
+                    color = if (darkTheme) Color.White else Color.Black
+                )
+            )
+            ClickableText(drink.strTags, drink.strTags, context, darkTheme)
+        }
+    }
+
+}
 
 
 @Composable

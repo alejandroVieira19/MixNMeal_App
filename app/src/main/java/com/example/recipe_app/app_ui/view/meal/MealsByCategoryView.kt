@@ -113,7 +113,7 @@ fun MealCategoryScreen(categories: List<Category>, navController: NavController)
             DividerComposable(darkTheme)
             LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
             items(categories) { category ->
-                MealyByCategoryItem(category = category, darkTheme)
+                MealyByCategoryItem(category = category, darkTheme,navController)
             }
             }
     }
@@ -123,13 +123,13 @@ fun MealCategoryScreen(categories: List<Category>, navController: NavController)
 
 
     @Composable
-    fun MealyByCategoryItem(category: Category, darkTheme: Boolean) {
+    fun MealyByCategoryItem(category: Category, darkTheme: Boolean, navController: NavController) {
         Card(
             modifier = Modifier
                 .padding(8.dp)
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .clickable(onClick = {}),
+                .clickable(onClick = {navController.navigate("all_meals_by_category_chosen/${category.strCategory}")}),
             shape = RoundedCornerShape(16.dp)
         ) {
             Box(

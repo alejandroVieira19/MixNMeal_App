@@ -13,6 +13,6 @@ fun AlcoholicDrinksView(navController: NavController) {
 
     val viewAlcoholicDrinksState by alcoholicDrinksViewModel.alcoholicDrinksState
 
-    NonAlcoholicDrinksScreen(viewAlcoholicDrinksState.list, navController)
+    NonAlcoholicDrinksScreen(viewAlcoholicDrinksState.list, navController, "alcoholic")
 }
 

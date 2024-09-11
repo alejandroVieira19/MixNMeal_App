@@ -1,5 +1,6 @@
 package com.example.recipe_app.app_ui.view.drinks
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -30,6 +31,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -67,16 +69,23 @@ fun NonAlcoholicDrinksView(navController: NavController,modifier: Modifier = Mod
             }
 
             else -> {
-                NonAlcoholicDrinksScreen( viewState.list, navController)
+                NonAlcoholicDrinksScreen(viewState.list, navController, "non")
             }
         }
     }
 }
 
+@SuppressLint("UnrememberedMutableState")
 @Composable
-fun NonAlcoholicDrinksScreen(nonAlcoholicDrinks: List<Drinks>, navController: NavController) {
+fun NonAlcoholicDrinksScreen(
+    nonAlcoholicDrinks: List<Drinks>,
+    navController: NavController,
+    typeOfDrink: String
+) {
 
     val darkTheme = isSystemInDarkTheme()
+
+    var nameDrinkText = mutableStateOf("Non Alcoholic Drinks")
 
     Column(
         modifier = Modifier.fillMaxSize()
@@ -102,8 +111,12 @@ fun NonAlcoholicDrinksScreen(nonAlcoholicDrinks: List<Drinks>, navController: Na
 
             Spacer(modifier = Modifier.width(8.dp)) // Espaço entre o ícone e o texto
 
+            if(typeOfDrink.equals("alcoholic")) {
+                nameDrinkText.value = "Alcoholic Drinks"
+            }
+
             Text(
-                text = "MixNMeal Food Categories",
+                text = "MixNMeal ${nameDrinkText.value}",
                 color = if (darkTheme) Color.White else Color.DarkGray,
                 style = TextStyle(
                     fontWeight = FontWeight.Bold,
