@@ -50,7 +50,7 @@ fun MixNMealByArea(darkTheme: Boolean, countries: List<Country>, navController: 
         )
 
         IconButton(
-            onClick = {/* TODO ARROW FUNCTION PURPOSE */ },
+            onClick = {navController.navigate("countries")},
             modifier = Modifier.size(24.dp) // Adjust size to match the aesthetics
         ) {
             Icon(

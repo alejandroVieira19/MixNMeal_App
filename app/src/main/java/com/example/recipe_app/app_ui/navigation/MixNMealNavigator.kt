@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.recipe_app.app_ui.view.MixNMealView
+import com.example.recipe_app.app_ui.view.countries.MixNMealCountriesView
 import com.example.recipe_app.app_ui.view.drinks.AlcoholicDrinksView
 import com.example.recipe_app.app_ui.view.drinks.DrinkDetailView
 import com.example.recipe_app.app_ui.view.drinks.NonAlcoholicDrinksView
@@ -26,6 +27,7 @@ fun MixNMealNavigator() {
         composable("random_meal") { RandomMealView(navController) }
         composable("non_alcoholic") { NonAlcoholicDrinksView(navController) }
         composable("alcoholic_drinks") { AlcoholicDrinksView(navController) }
+        composable("countries") { MixNMealCountriesView(navController) }
 
         composable("all_meals_by_category_chosen/{category}"){
                 backStackEntry -> val categoryChosen = backStackEntry.arguments?.getString("category") ?: ""
